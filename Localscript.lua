@@ -11,12 +11,12 @@ task.wait(3)
 
 local Window = Library:AddWindow({
 	toggled = true,
-	Title = "CGG UI Library",
+	Title = "CGG UI Library"
 })
 
 -- Tabs
 local Tab = Window:AddTab({
-	Title = "Tab",
+	Title = "Tab"
 })
 local SecondTab = Window:AddTab({
 	Title = "Test",
@@ -29,10 +29,15 @@ local ThirdTab = Window:AddTab({
 
 -- Tab
 local Section = Tab:AddSection({
-	Title = "Omg cool section",
+	Title = "Omg cool section"
 })
 
 -- SecondTab
 local SecondSection = SecondTab:AddSection({
 	Title = "i like cake"
+})
+
+-- Button
+local Button = Section:AddButton({
+	Title = "test button"
 })
