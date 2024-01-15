@@ -41,3 +41,7 @@ local SecondSection = SecondTab:AddSection({
 local Button = Section:AddButton({
 	Title = "test button"
 })
+
+local Button2 = Section:AddButton({
+	Title = "ok"
+})
