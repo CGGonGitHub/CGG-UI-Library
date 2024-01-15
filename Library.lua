@@ -233,10 +233,10 @@ function Library:AddWindow(options)
 				BackgroundColor = options.BackgroundColor or Color3.fromRGB(31,31,31),
 				FontColor = options.FontColor or Color3.fromRGB(0,0,0),
 				toggled = true,
-				height = 50,
+				height = 45,
 				Components = {}
 			}
-			
+
 			table.insert(Tab.Sections, Section)
 
 			Section.SectionFill = UI.Create("Frame", {
@@ -281,7 +281,7 @@ function Library:AddWindow(options)
 					})
 				}, UDim.new(0, 15))
 			}, UDim.new(0,15))
-			
+
 			Section.SectionBorderLine = UI.Create("Frame", {
 				Name = "SectionBorderLine",
 				BorderSizePixel = 0,
@@ -329,16 +329,16 @@ function Library:AddWindow(options)
 			Section.SectionBorder.SectionTextLabel.SectionToggleButton.Activated:Connect(function()
 				Section:ToggleSection()
 			end)
-			
+
 			-- Button
 			function Section:AddButton(options)
 				local Button = {
 					Title = options.Title or "Button",
 					Image = options.image or nil,
 					componentType = "button"
-					
+
 				}
-				
+
 				Button.ButtonBorder = UI.Create("Frame", {
 					Name = "ButtonBorder",
 					AnchorPoint = Vector2.new(0.5, 0),
@@ -347,7 +347,7 @@ function Library:AddWindow(options)
 					Size = UDim2.new(0.95,0, 0,40),
 					ZIndex = 3
 				}, UDim.new(0, 10))
-				
+
 				if options.Image then
 					Button.ButtonImage = UI.Create("ImageLabel", {
 						Name = "ButtonImage",
@@ -357,7 +357,7 @@ function Library:AddWindow(options)
 						ZIndex = 3,
 					}, UDim.new(0, 10))
 				end
-				
+
 				Button.Button = UI.Create("Frame", {
 					Name = "Button",
 					AnchorPoint = Vector2.new(0.5, 0.5),
@@ -366,12 +366,12 @@ function Library:AddWindow(options)
 					Size = UDim2.new(1,-55, 0.8,0),
 					ZIndex = 3
 				}, UDim.new(0, 10))
-				
+
 				-- Functions
 				table.insert(Section.Components, Button)
-				
+
 				Section.height += 40
-				
+
 				-- Parenting
 				Button.ButtonBorder.Parent = Section.SectionFill
 				if options.Image then
@@ -380,6 +380,17 @@ function Library:AddWindow(options)
 				Button.Button.Parent = Button.ButtonBorder
 				return Button
 			end
+			
+			function Section:AddToggle(options)
+				local Toggle = {
+					Title = options.Title or "Title",
+					
+				}
+			end
+			
+			-- Toggle Circle left: UDim2.new(0,0, 0.5,0)
+			-- Toggle Circle right: UDim2.nw(0,50, 0.5,0)
+			
 			
 			Section.SectionFill.Parent = Tab.TabFrame
 			Section.SectionBorder.Parent = Section.SectionFill
